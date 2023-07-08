@@ -14,4 +14,18 @@ contact = {
 }
 
 x = contact["FirstName"]
-print(x)
+y = contact["LastName"]
+z = contact["PhoneNum"]
+print(x,y,z)
+
+FN = input("Enter first name: ")
+LN = input("Enter last name: ")
+PN = input("Enter phone number: ")
+
+contact.update({"FirstName": FN, "LastName": LN, "PhoneNum": PN})
+
+x = contact["FirstName"]
+y = contact["LastName"]
+z = contact["PhoneNum"]
+
+print(x,y,z)
