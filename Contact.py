@@ -1,4 +1,5 @@
 import json
+
 contact = {
     "FirstName": "Minjun",
     "LastName": "Lee",
@@ -22,8 +23,14 @@ z = contact["PhoneNum"]
 
 #print(x,y,z)
 
-json_object = json.dumps(contact,indent=4)
-print(json_object)
+#json_object = json.dumps(contact,indent=4)
+#print(json_object)
+
+#open() is used to open files, takes two parameters
+#file name(or path) and the mode
+#with ensure that the file is properly closed after use
+with open("contact.json", "w") as outfile:
+    json.dump(contact, outfile)
 
 #need to figure out how to connect to sql on vs code
 #need to figure out how to save column name as key and fill in with value
