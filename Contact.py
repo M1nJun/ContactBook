@@ -6,20 +6,20 @@ contact = {
     "PhoneNum": "9206669262"
 }
 
-x = contact["FirstName"]
-y = contact["LastName"]
-z = contact["PhoneNum"]
-print(x,y,z)
+# x = contact["FirstName"]
+# y = contact["LastName"]
+# z = contact["PhoneNum"]
+# print(x,y,z)
 
-FN = input("Enter first name: ")
-LN = input("Enter last name: ")
-PN = input("Enter phone number: ")
+# FN = input("Enter first name: ")
+# LN = input("Enter last name: ")
+# PN = input("Enter phone number: ")
 
-contact.update({"FirstName": FN, "LastName": LN, "PhoneNum": PN})
+# contact.update({"FirstName": FN, "LastName": LN, "PhoneNum": PN})
 
-x = contact["FirstName"]
-y = contact["LastName"]
-z = contact["PhoneNum"]
+# x = contact["FirstName"]
+# y = contact["LastName"]
+# z = contact["PhoneNum"]
 
 #print(x,y,z)
 
@@ -32,7 +32,24 @@ z = contact["PhoneNum"]
 with open("contact.json", "w") as outfile:
     json.dump(contact, outfile)
 
-#need to figure out how to connect to sql on vs code
-#need to figure out how to save column name as key and fill in with value
-#need to figure out how to have multiple dictionarys like instances of classes
+#Question: load from json file as a string?dict?
+#Answer: I found out from an error that this was loaded as a 'dict' object and therefore can't use append
+#does ' or " matter?
+contact = json.load(open("contact.json"))
 
+#convert from dict to list
+if type(contact) is dict:
+    contact = [contact]
+
+FN = input("Enter first name: ")
+LN = input("Enter last name: ")
+PN = input("Enter phone number: ")
+
+contact.append({
+    "FirstName": FN,
+    "LastName": LN,
+    "PhoneNum": PN
+})
+
+with open("contact.json", "w") as outfile:
+    json.dump(contact, outfile)
