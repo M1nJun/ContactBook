@@ -111,3 +111,11 @@ contacts["data"].append(new_contact)
 with open("contact.json", "w") as outfile:
     json.dump(contacts, outfile, indent=4)
 ```
+
+If you don't speicfy the index on pop(), it will simply remove the last item on the list.
+
+```
+contacts["data"].pop(3)
+#or
+del contacts["data"][3]
+```
