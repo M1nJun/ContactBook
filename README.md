@@ -1,6 +1,9 @@
 # ContactBook
 
-This is my journey of learning python. I'm making a simple contact book app.
+This is my journey of learning python.
+
+My goal is to make a simple contact book app. In the future, I want to make a simple messenger app that uses this contact book app. I will also learn Javascript, CSS, and HTML. When I get used to it, I want to learn React to make a good looking UI for these apps.
+
 I'm keeping record of the stuff I learned here.
 
 You can create a dictionary like this. A dictionary needs a key and a value.
