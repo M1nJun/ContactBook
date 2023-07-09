@@ -1,1 +1,24 @@
-[{"FirstName": "Minjun", "LastName": "Lee", "PhoneNum": "9206669262"}, {"FirstName": "Kangbok", "LastName": "Lee", "PhoneNum": "2067937371"}]
+{
+    "data": [
+        {
+            "FirstName": "Minjun",
+            "LastName": "Lee",
+            "PhoneNum": "9206669262"
+        },
+        {
+            "FirstName": "Kangbok",
+            "LastName": "Lee",
+            "PhoneNum": "2067937371"
+        },
+        {
+            "FirstName": "Changjoo",
+            "LastName": "Oh",
+            "PhoneNum": "9206361808"
+        },
+        {
+            "FirstName": "Miranda",
+            "LastName": "Whitaker",
+            "PhoneNum": "6086323602"
+        }
+    ]
+}

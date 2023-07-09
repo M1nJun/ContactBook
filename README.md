@@ -81,3 +81,33 @@ contact.append({
     "PhoneNum": PN
 })
 ```
+
+Starting from here, I updated my json file into a nested dict structure. It looks like this. The key for the very outer dictionary is "data" and the value is a list. Now I can simply append to this list for new contacts.
+
+```
+{
+    "data": [
+        {
+            "FirstName": "Minjun",
+            "LastName": "Lee",
+            "PhoneNum": "9206669262"
+        },
+        {
+            "FirstName": "Kangbok",
+            "LastName": "Lee",
+            "PhoneNum": "2067937371"
+        }
+    ]
+}
+```
+
+This is the append process. The indent is there so that the json file is neat.
+
+```
+new_contact = {"FirstName": FN, "LastName": LN, "PhoneNum": PN}
+contacts["data"].append(new_contact)
+
+#without the indent, it appeared on the json file as just a straight line of data.
+with open("contact.json", "w") as outfile:
+    json.dump(contacts, outfile, indent=4)
+```
