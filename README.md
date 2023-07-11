@@ -166,3 +166,46 @@ x, y, z = tupleFunc()
 x, _, z = tupleFunc()
 x, _, _ = tupleFunc()
 ```
+
+This is my revised contact.json so that it isn't a nested dictionary with a list as a value anymore. I wanted to access the names via phone numbers.
+
+```javascript
+{
+    "data": {
+        "9206669262": {
+            "FirstName": "Minjun",
+            "LastName": "Lee"
+        },
+        "2067937371": {
+            "FirstName": "Kangbok",
+            "LastName": "Lee"
+        }
+    }
+}
+```
+
+This is the revised code for the add_contact function. instead of append(), I'm using update(). This works for dictionarys.
+
+```python
+    new_contact = {PN:{"FirstName": FN, "LastName": LN}}
+    contacts["data"].update(new_contact)
+```
+
+This is the show_contact function. I got rid of the enumerate() function from the for loop. When you give two variables and <dictionary>.items() to a for loop, you receive a key and value for each variable. In the commented version, I learned that you can get a key by giving the dictionary directly to the for loop.
+
+```python
+def show_contact():
+    with open("contact.json") as infile:
+        contacts = json.load(infile)
+
+    # for key in contacts["data"]:
+    #     FN = contacts["data"][key]["FirstName"]
+    #     LN = contacts["data"][key]["LastName"]
+    #     print(f'{FN}-{LN}')
+
+    for key,val in contacts["data"].items():
+        PN = key
+        FN = val["FirstName"]
+        LN = val["LastName"]
+        print(f'Phone number is: {PN}\nName is: {FN}-{LN}')
+```
