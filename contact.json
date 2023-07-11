@@ -1,19 +1,20 @@
 {
-    "data": [
-        {
+    "data": {
+        "9206669262": {
             "FirstName": "Minjun",
-            "LastName": "Lee",
-            "PhoneNum": "9206669262"
+            "LastName": "Lee"
         },
-        {
+        "2067937371": {
             "FirstName": "Kangbok",
-            "LastName": "Lee",
-            "PhoneNum": "2067937371"
+            "LastName": "Lee"
         },
-        {
+        "9206361808": {
             "FirstName": "Changjoo",
-            "LastName": "Oh",
-            "PhoneNum": "9206361808"
+            "LastName": "Oh"
+        },
+        "6086323602": {
+            "FirstName": "Miranda",
+            "LastName": "Whitaker"
         }
-    ]
+    }
 }
