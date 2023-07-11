@@ -8,7 +8,7 @@ I'm keeping record of the stuff I learned here.
 
 You can create a dictionary like this. A dictionary needs a key and a value.
 
-```
+```python
 contact = {
     "FirstName": "Minjun",
     "LastName": "Lee",
@@ -19,7 +19,7 @@ contact = {
 You can print the value in the dictionary by using the key. <dict_name>["<key>"]
 Also, you can print multiple stuff with one print function like this.
 
-```
+```python
 x = contact["FirstName"]
 y = contact["LastName"]
 z = contact["PhoneNum"]
@@ -29,7 +29,7 @@ print(x,y,z)
 You can get a input from user with input("<prompt>")
 This is how you update your dictionary.
 
-```
+```python
 FN = input("Enter first name: ")
 LN = input("Enter last name: ")
 PN = input("Enter phone number: ")
@@ -42,7 +42,7 @@ Dump() method used to write Python serialized object as JSON formatted data into
 Dumps() method is used to encode any Python object into JSON formatted String.
 Indent is for visual appearance, =4 is a popular choice.
 
-```
+```python
 import json
 
 json_object = json.dumps(contact,indent=4)
@@ -52,7 +52,7 @@ print(json_object)
 'open()' is used to open files, takes two parameters file name(or path) and the mode.
 'with' ensure that the file is properly closed after use
 
-```
+```python
 with open("contact.json", "w") as outfile:
     json.dump(contact, outfile)
 ```
@@ -61,13 +61,13 @@ Question: With this code, does the data load from json file as a string? dict?
 Answer: I found out from an error that this was loaded as a 'dict' object and therefore I couldn't use append.
 Question: Does ' or " matter?
 
-```
+```python
 contact = json.load(open("contact.json"))
 ```
 
 This is how I converted dict object to list. After this, I could use contact.append()
 
-```
+```python
 if type(contact) is dict:
     contact = [contact]
 
@@ -84,7 +84,7 @@ contact.append({
 
 Starting from here, I updated my json file into a nested dict structure. It looks like this. The key for the very outer dictionary is "data" and the value is a list. Now I can simply append to this list for new contacts.
 
-```
+```javascript
 {
     "data": [
         {
@@ -103,7 +103,7 @@ Starting from here, I updated my json file into a nested dict structure. It look
 
 This is the append process. The indent is there so that the json file is neat.
 
-```
+```python
 new_contact = {"FirstName": FN, "LastName": LN, "PhoneNum": PN}
 contacts["data"].append(new_contact)
 
@@ -114,8 +114,55 @@ with open("contact.json", "w") as outfile:
 
 If you don't speicfy the index on pop(), it will simply remove the last item on the list.
 
-```
+```python
 contacts["data"].pop(3)
 #or
 del contacts["data"][3]
+```
+
+This is my remove_contact() function. I tried using print(f''), which is a convinient tool to print.
+I thought it would be convinient if it were to be an index that were returned to the server.
+
+```python
+def remove_contact():
+    with open("contact.json") as infile:
+        contacts = json.load(infile)
+
+    for x in range(len(contacts["data"])):
+        FN = contacts["data"][x]["FirstName"]
+        LN = contacts["data"][x]["LastName"]
+        print(f'{x}:{FN}-{LN}')
+
+    index_to_delete = input("Enter the index of the person you want to delete: ")
+
+    contacts["data"].pop(index_to_delete)
+
+    with open("contact.json", "w") as outfile:
+        json.dump(contacts, outfile, indent=4)
+```
+
+I realized that using range() in for loops is kind of like a java approach.
+Because I'm learning python I wanted to try something more of a python approach.
+
+Used enumerate. If you give one variable to the for loop, you get a tuple. If you give two varibale, you get an index for the first, obeject for the second.
+
+```python
+ for index, contact in enumerate(contacts["data"]):
+        FN = contact["FirstName"]
+        LN = contact["LastName"]
+        print(f'{index}:{FN}-{LN}')
+```
+
+For my information, you never use a function that returns a tuple to just receive a tuple.
+
+```python
+def tupleFunc():
+
+    return a, b, c
+
+x = tupleFunc()
+x = (a, b, c) #not good
+x, y, z = tupleFunc()
+x, _, z = tupleFunc()
+x, _, _ = tupleFunc()
 ```
