@@ -1,12 +1,8 @@
 import json
 
-def add_contact():
+def add_contact(PN, FN, LN):
     with open("contacts/contact.json") as infile:
         contacts = json.load(infile)
-
-    PN = input("Enter phone number: ")
-    FN = input("Enter first name: ")
-    LN = input("Enter last name: ")
 
     new_contact = {PN:{"FirstName": FN, "LastName": LN}}
     contacts["data"].update(new_contact)
@@ -15,11 +11,9 @@ def add_contact():
     with open("contacts/contact.json", "w") as outfile:
         json.dump(contacts, outfile, indent=4)
 
-def remove_contact():
+def remove_contact(index_to_delete):
     with open("contacts/contact.json") as infile:
         contacts = json.load(infile)
-
-    index_to_delete = input("Enter the index of the person you want to delete: ")
 
     contacts["data"].pop(index_to_delete)
 
@@ -54,8 +48,3 @@ def show_contact():
 
 #if the user does not have a username.json file, make one
 #change the function so that it takes in parameters from main.py
-
-PN = "9206669262"
-option = 2
-edit = "Park"
-edit_contact(PN, option, edit)

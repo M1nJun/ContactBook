@@ -5,6 +5,10 @@ import os
 if __name__=="main":
     user_name = input("Login: ")
 
+    with open("users.json") as f:
+        users = json.load(f)
+    if users
+
     try:
         with open(f'{user_name}.json') as f:
             contacts = json.load(f)
@@ -15,9 +19,13 @@ if __name__=="main":
     if user_choice == 1:
         show_contact()
     if user_choice == 2:
-        add_contact()
+        PN = input("Enter phone number: ")
+        FN = input("Enter first name: ")
+        LN = input("Enter last name: ")
+        add_contact(PN, FN, LN)
     if user_choice == 3:
-        remove_contact()
+        index_to_delete = input("Enter the index of the person you want to delete: ")
+        remove_contact(index_to_delete)
     if user_choice == 4:
         edit_PN = input("Enter the phone number that you want to edit: ")
         edit_option = input("Choose edit option you want:\n1. FirstName\n2. LastName\n3. PhoneNumber")
