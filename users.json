@@ -1,5 +1,22 @@
 {
   "data": {
-    "UserName": "Minjun Lee"
+    "mj2000": {
+      "Password": "1234",
+      "FirstName": "Minjun",
+      "LastName": "Lee",
+      "PhoneNum": "9206669262"
+    },
+    "kb1995": {
+      "Password": "1234",
+      "FirstName": "Kangbok",
+      "LastName": "Lee",
+      "PhoneNum": "2067937371"
+    },
+    "mw2002": {
+      "Password": "1234",
+      "FirstName": "Miranda",
+      "LastName": "Whitaker",
+      "PhoneNum": "6086323602"
+    }
   }
 }
