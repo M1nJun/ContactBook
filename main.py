@@ -19,7 +19,10 @@ if __name__=="main":
     if user_choice == 3:
         remove_contact()
     if user_choice == 4:
-        edit_contact()
+        edit_PN = input("Enter the phone number that you want to edit: ")
+        edit_option = input("Choose edit option you want:\n1. FirstName\n2. LastName\n3. PhoneNumber")
+        edit = input("Type the edit: ")
+        edit_contact(edit_PN, edit_option, edit)
 
     
 
