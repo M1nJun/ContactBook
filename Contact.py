@@ -27,7 +27,7 @@ def remove_contact():
         json.dump(contacts, outfile, indent=4)
 
 def edit_contact(PN, option, edit):
-    with open("contacts/contact.json", "w") as infile:
+    with open("contacts/contact.json", "r") as infile:
         contacts = json.load(infile)
     
     if option == 1:
@@ -37,6 +37,9 @@ def edit_contact(PN, option, edit):
     if option == 3:
         contacts["data"][edit] = contacts["data"][PN]
         del contacts["data"][PN]
+    
+    with open("contacts/contact.json", "w") as outfile:
+        json.dump(contacts, outfile, indent=4)
 
 
 def show_contact():
