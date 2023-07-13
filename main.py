@@ -1,16 +1,16 @@
-#just import, I need to do shit like contact.<function name>
+#just import, I need to do stuff like contact.<function name>
 from Functions import *
 import os
 
-if __name__=="main":
+if __name__=="__main__":
     with open("users.json") as f:
         users = json.load(f)
 
-    user_status = input("Choose the operation you want:\n1. Log in\n2. Sign up")
+    user_status = input("Choose the operation you want:\n1. Log in\n2. Sign up\n")
     login_status = False
     user_id = "default"
 
-    if user_status == 1:
+    if user_status == "1":
         user_id = input("ID: ")
         user_existance = False
 
@@ -30,7 +30,7 @@ if __name__=="main":
         else:
             raise ValueError("Your Password is incorrect. Get TF out.")
 
-    elif user_status == 2:
+    elif user_status == "2":
         print("We're signing you up. Please fill out your information.")
         user_PN = input("Enter Phone Number: ")
         user_FN = input("Enter First Name: ")
@@ -52,22 +52,25 @@ if __name__=="main":
     except:
         os.create(f'contacts/{user_id}.json')
 
-    user_choice = input("Choose operations you want:\n1. Show\n2. Add\n3. Remove\n4. Edit")
-    if user_choice == 1:
-        show_contact(user_id)
-    if user_choice == 2:
-        PN = input("Enter phone number: ")
-        FN = input("Enter first name: ")
-        LN = input("Enter last name: ")
-        add_contact(user_id, PN, FN, LN)
-    if user_choice == 3:
-        index_to_delete = input("Enter the index of the person you want to delete: ")
-        remove_contact(user_id, index_to_delete)
-    if user_choice == 4:
-        edit_PN = input("Enter the phone number that you want to edit: ")
-        edit_option = input("Choose edit option you want:\n1. FirstName\n2. LastName\n3. PhoneNumber")
-        edit = input("Type the edit: ")
-        edit_contact(user_id, edit_PN, edit_option, edit)
+    while True:
+        user_choice = input("Choose operations you want:\n1. Show\n2. Add\n3. Remove\n4. Edit\n5.Exit App\n")
+        if user_choice == "1":
+            show_contact(user_id)
+        if user_choice == "2":
+            PN = input("Enter phone number: ")
+            FN = input("Enter first name: ")
+            LN = input("Enter last name: ")
+            add_contact(user_id, PN, FN, LN)
+        if user_choice == "3":
+            index_to_delete = input("Enter the index of the person you want to delete: ")
+            remove_contact(user_id, index_to_delete)
+        if user_choice == "4":
+            edit_PN = input("Enter the phone number that you want to edit: ")
+            edit_option = input("Choose edit option you want:\n1. FirstName\n2. LastName\n3. PhoneNumber")
+            edit = input("Type the edit: ")
+            edit_contact(user_id, edit_PN, edit_option, edit)
+        if user_choice == "5":
+            break
 
     
 
