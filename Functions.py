@@ -21,11 +21,11 @@ def add_contact(user_id, PN, FN, LN):
     with open(f'contacts/{user_id}.json', "w") as outfile:
         json.dump(contacts, outfile, indent=4)
 
-def remove_contact(user_id, index_to_delete):
+def remove_contact(user_id, PN_to_delete):
     with open(f'contacts/{user_id}.json') as infile:
         contacts = json.load(infile)
 
-    contacts["data"].pop(index_to_delete)
+    contacts["data"].pop(PN_to_delete)
 
     with open(f'contacts/{user_id}.json', "w") as outfile:
         json.dump(contacts, outfile, indent=4)
@@ -34,11 +34,11 @@ def edit_contact(user_id, PN, option, edit):
     with open(f'contacts/{user_id}.json') as infile:
         contacts = json.load(infile)
     
-    if option == 1:
+    if option == "1":
         contacts["data"][PN]["FirstName"] = edit
-    if option == 2:
+    if option == "2":
         contacts["data"][PN]["LastName"] = edit
-    if option == 3:
+    if option == "3":
         contacts["data"][edit] = contacts["data"][PN]
         del contacts["data"][PN]
     

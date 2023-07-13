@@ -38,6 +38,7 @@ if __name__=="__main__":
         user_id = input("Enter ID: ")
         user_password = input("Enter Password: ")
 
+        login_status = True
         print("Sign up successful. Go back and Log in")
         #i want this code to update the users.json file
 
@@ -46,11 +47,11 @@ if __name__=="__main__":
     
     #At this point I'm thinking should I divide this long code into functions.
 
-    try:
-        with open(f'contacts/{user_id}.json') as f:
-            contacts = json.load(f)
-    except:
-        os.create(f'contacts/{user_id}.json')
+    if os.path.exists(f'contacts/{user_id}.json'):
+        print("File exists for user")
+    else:
+        with open(f'contacts/{user_id}.json', "w") as f:
+            f.write("{\"data\": {}}")
 
     while True:
         user_choice = input("Choose operations you want:\n1. Show\n2. Add\n3. Remove\n4. Edit\n5.Exit App\n")
@@ -62,8 +63,8 @@ if __name__=="__main__":
             LN = input("Enter last name: ")
             add_contact(user_id, PN, FN, LN)
         if user_choice == "3":
-            index_to_delete = input("Enter the index of the person you want to delete: ")
-            remove_contact(user_id, index_to_delete)
+            PN_to_delete = input("Enter the Phone number of the person you want to delete: ")
+            remove_contact(user_id, PN_to_delete)
         if user_choice == "4":
             edit_PN = input("Enter the phone number that you want to edit: ")
             edit_option = input("Choose edit option you want:\n1. FirstName\n2. LastName\n3. PhoneNumber")
