@@ -38,9 +38,17 @@ if __name__=="__main__":
         user_id = input("Enter ID: ")
         user_password = input("Enter Password: ")
 
+        with open('users.json') as infile:
+            users = json.load(infile)
+        
+        new_user = {user_id:{"Password":user_password, "FirstName": user_FN, "LastName": user_LN, "Phonenum": user_PN}}
+        users["data"].update(new_user)
+        
+        with open('users.json', "w") as outfile:
+            json.dump(users, outfile, indent=4)
+        
         login_status = True
         print("Sign up successful. Go back and Log in")
-        #i want this code to update the users.json file
 
     if login_status == False:
         raise ValueError("Error.")
