@@ -23,6 +23,12 @@
             "FirstName": "Example",
             "LastName": "Mr.",
             "Phonenum": "4444444444"
+        },
+        "Chi2004": {
+            "Password": "1234",
+            "FirstName": "Chi",
+            "LastName": "Nguyen",
+            "Phonenum": "5555555555"
         }
     }
 }

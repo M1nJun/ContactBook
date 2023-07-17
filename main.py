@@ -37,6 +37,12 @@ if __name__=="__main__":
         user_LN = input("Enter Last Name: ")
         user_id = input("Enter ID: ")
         user_password = input("Enter Password: ")
+        user_password_check = input("Confirm Password: ")
+
+        while user_password != user_password_check:
+            print("Password Confirm failure")
+            user_password = input("Enter Password: ")
+            user_password_check = input("Confirm Password: ")
 
         with open('users.json') as infile:
             users = json.load(infile)
