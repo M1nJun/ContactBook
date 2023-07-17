@@ -53,11 +53,12 @@ if __name__=="__main__":
         with open('users.json', "w") as outfile:
             json.dump(users, outfile, indent=4)
         
-        login_status = True
         print("Sign up successful. Go back and Log in")
 
+    #User has to run the program again to login. Should figure out a way to refer back to login part of the code.
+    #Should I just put everything under separate functions?
     if login_status == False:
-        raise ValueError("Error.")
+        exit()
     
     #At this point I'm thinking should I divide this long code into functions.
 

@@ -29,6 +29,18 @@
             "FirstName": "Chi",
             "LastName": "Nguyen",
             "Phonenum": "5555555555"
+        },
+        "sb2000": {
+            "Password": "1234",
+            "FirstName": "Subin",
+            "LastName": "Han",
+            "Phonenum": "777777777"
+        },
+        "jf2010": {
+            "Password": "1234",
+            "FirstName": "fejaef",
+            "LastName": "ajf",
+            "Phonenum": "444444444"
         }
     }
 }
